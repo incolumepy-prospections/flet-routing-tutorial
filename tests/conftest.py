@@ -1,7 +1,8 @@
 """Conftest module."""
+
 import pytest
 
-__author__ = "@britodfbr"  # pragma: no cover
+__author__ = '@britodfbr'  # pragma: no cover
 
 
 @pytest.fixture(scope='session')

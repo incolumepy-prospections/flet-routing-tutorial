@@ -1,6 +1,6 @@
 """Tests Semantic version."""
 
-__author__ = "@britodfbr"  # pragma: no cover
+__author__ = '@britodfbr'  # pragma: no cover
 
 import re
 
@@ -8,10 +8,10 @@ import pytest
 from incolume.py.flet_routing_tutorial import __version__
 
 
-@pytest.mark.fast()
 class TestSemVer:
     """Test case class for Sematic Versions."""
 
+    @pytest.mark.fast()
     def test_version(self, semver_regex: str) -> None:
         """Validação de versionamento semântico para versão do pacote."""
         assert re.fullmatch(semver_regex, __version__, re.I)
