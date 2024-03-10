@@ -257,7 +257,7 @@ parametrize-values-row-type = "tuple"
 [tool.taskipy.variables]
 path = "incolume/ tests/"
 CHANGELOGFILE = "docs/about/CHANGELOG.md"
-URLCOMPARE = "https://github.com/incolumepy-prospections/flet-routing-tutorial./compare/"
+URLCOMPARE = "https://github.com/incolumepy-prospections/flet-routing-tutorial/compare/"
 
 [tool.taskipy.tasks]
 clean = {cmd = "echo -n 'Starting cleanning environment..'; find ./ \\( -wholename '*report_coverage' -o -name '*.pyc' -o -name '*~' -o -name '*.log' -o -name '*.log.*' -o -name '.cache' -o -name '.coverage' \\) -delete ; echo ' ok' ",  help = "Shallow clean into environment (.pyc, .cache, .egg, .log, et all)" }
