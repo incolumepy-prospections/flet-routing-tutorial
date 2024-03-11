@@ -1,11 +1,11 @@
 """Router module."""
 
 import logging
-from typing import Any
 from collections.abc import Callable
+from enum import Enum
+from typing import Any
 
 import flet as ft
-from enum import Enum
 
 
 class DataStrategyEnum(Enum):

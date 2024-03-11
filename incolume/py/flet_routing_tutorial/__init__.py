@@ -1,7 +1,8 @@
 """Principal Module."""
 
-import toml
 from pathlib import Path
+
+import toml
 
 __author__ = '@britodfbr'  # pragma: no cover
 
