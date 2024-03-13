@@ -1,7 +1,6 @@
 """index view module."""
 
 import logging
-from typing import Union
 
 import flet as ft
 from incolume.py.flet_routing_tutorial.views.Router import (
@@ -11,7 +10,7 @@ from incolume.py.flet_routing_tutorial.views.Router import (
 from State import State
 
 
-def index_view(router_data: Union[Router, str, None] = None) -> ft.Control:
+def index_view(router_data: Router = None) -> ft.Control:
     """index_view function.
 
     :param router_data:
@@ -25,7 +24,7 @@ def index_view(router_data: Union[Router, str, None] = None) -> ft.Control:
         :return:
         """
         if text_field.value == '':
-            return
+            return None
 
         if router_data:
             match router_data.data_strategy:
