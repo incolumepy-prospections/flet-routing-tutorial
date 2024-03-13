@@ -6,7 +6,7 @@ from incolume.py.flet_routing_tutorial.views.Router import (
     DataStrategyEnum,
     Router,
 )
-from State import global_state
+from incolume.py.flet_routing_tutorial.State import global_state
 
 
 def data_view(router: Router = None) -> ft.Control:
