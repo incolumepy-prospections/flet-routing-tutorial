@@ -10,9 +10,19 @@ This file was automatically generated for [incolume.py.changelog](https://github
 ---
 
 
+## [Unreleased]	 &#8212; 	2024-03-13:
+### Added
+  - Ferramentas para automatizar documentação;
+  - Ferramentas para automação de tarefas;
+  - Ferramenta para gerar registros de modificações no software;
+  - Ferramentas para garantia de qualidade;
+  - Ferramenta para formatar código;
+  - Configurações extras para ferramentas suplementares (ruff, mypy, pytest, pytest-cov e afins);
+
 ## 0.1.0	 &#8212; 	2024-03-10:
 ### Added
   - Versão inicial incolume.py.flet-routing-tutorial;
 
 ---
 
+[Unreleased]: https://github.com/incolumepy-prospections/flet-routing-tutorial/compare//0.1.0...Unreleased

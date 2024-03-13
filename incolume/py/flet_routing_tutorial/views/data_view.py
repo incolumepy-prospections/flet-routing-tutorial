@@ -1,6 +1,5 @@
 """Data_view module."""
 
-from typing import Union
 
 import flet as ft
 from incolume.py.flet_routing_tutorial.views.Router import (
@@ -10,7 +9,7 @@ from incolume.py.flet_routing_tutorial.views.Router import (
 from State import global_state
 
 
-def data_view(router: Union[Router, str, None] = None) -> ft.Control:
+def data_view(router: Router = None) -> ft.Control:
     """Data view.
 
     :param router:
