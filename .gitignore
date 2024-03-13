@@ -1,4 +1,5 @@
 # Arquivos diversos
+coverage_report/
 geckodriver
 *.[Cc][Ss][Vv]
 *.[dD][Bb]

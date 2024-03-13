@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "incolume-py-flet-routing-tutorial"
-version = "0.2.0a1"
+version = "0.2.0a2"
 description = ""
 authors = ["Your Name <you@example.com>"]
 license = "APL2"
@@ -188,9 +188,9 @@ ignore = [
   "FA100",  # Conflit with mypy
   "UP006",  # Conflit with mypy
   "UP007",  # Conflit with mypy
-  "I001",   # conflit with isort
+#  "I001",   # conflit with isort
   "ISC001",  # single-line-implicit-string-concatenation
-  #  "COM812",  # missing-trailing-comma
+#    "COM812",  # missing-trailing-comma
 ]
 
 [tool.ruff.lint.per-file-ignores]

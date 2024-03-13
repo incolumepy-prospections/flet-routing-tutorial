@@ -1,9 +1,10 @@
 """Main module."""
 
-import flet as ft
-from incolume.py.flet_routing_tutorial.views.routes import router
-from incolume.py.flet_routing_tutorial.user_controls.app_bar import nav_bar
 from pathlib import Path
+
+import flet as ft
+from incolume.py.flet_routing_tutorial.user_controls.app_bar import nav_bar
+from incolume.py.flet_routing_tutorial.views.routes import router
 
 
 def main(page: ft.Page) -> None:

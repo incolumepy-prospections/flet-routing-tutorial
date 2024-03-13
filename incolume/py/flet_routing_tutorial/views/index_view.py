@@ -2,10 +2,11 @@
 
 import logging
 from typing import Union
+
 import flet as ft
 from incolume.py.flet_routing_tutorial.views.Router import (
-    Router,
     DataStrategyEnum,
+    Router,
 )
 from State import State
 
