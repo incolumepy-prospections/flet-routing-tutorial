@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "incolume-py-flet-routing-tutorial"
-version = "0.1.0"
+version = "0.2.0"
 description = ""
 authors = ["Your Name <you@example.com>"]
 license = "APL2"
@@ -15,7 +15,260 @@ flet = "0.10.3"
 [tool.poetry.group.dev.dependencies]
 ruff = "^0.3.2"
 pytest-cov = "^4.1.0"
+incolume-py-changelog = "^0.8.0"
+taskipy = "^1.12.2"
+mypy = "^1.9.0"
+types-toml = "^0.10.8.20240310"
+types-setuptools = "^69.1.0.20240310"
+
+
+[tool.poetry.group.docs.dependencies]
+mkdocs = "^1.5.3"
+mkdocs-material = "^9.5.13"
+mkdocstrings-python = "^1.8.0"
 
 [build-system]
 requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
+
+[tool.pytest.ini_options]
+log_format = '%(asctime)s; %(levelname)-8s; %(name)s; %(module)s; %(funcName)s; %(message)s'
+log_date_format ='%FT%T%N%z'
+addopts = "--doctest-modules --cov=incolume -sx --cov-report term-missing --cov-report html:coverage_report/html --cov-report xml:coverage_report/cov.xml"
+testpaths = [
+  "tests",
+]
+python_files = [
+  "test_*.py",
+  "*_tests.py"
+]
+markers = [
+  "slow: marks tests as slow (deselect with '-m \"not slow\"')",
+  "webtest: marks tests as webtest (deselect with '-m \"not webtest\"')",
+  "fast: marks tests as fasttest (deselect with '-m \"not fast\"')",
+]
+
+[tool.mypy]
+python_version = "3.10"
+mypy_path = "incolume"
+namespace_packages = false
+check_untyped_defs = true
+disallow_any_generics = true
+ignore_missing_imports = true
+no_implicit_optional = true
+show_error_codes = true
+strict_equality = true
+warn_redundant_casts = true
+warn_return_any = true
+warn_unreachable = true
+warn_unused_configs = true
+no_implicit_reexport = true
+
+#[[tool.mypy.overrides]]
+#disable_error_code = "attr-defined"
+#disallow_untyped_defs = true
+
+[tool.ruff]
+# required-version = "0.1.6"
+
+# Assume Python Version
+target-version = "py310"
+
+# Decrease the maximum line length to 79 character.
+line-length = 79
+
+namespace-packages = ["incolume/py/planalto_legis"]
+
+# Allow imports relative to directories
+src = ["incolume/", "tests/", "examples/"]
+
+fix = false
+force-exclude = true
+
+# Enumerate all fixed violations.
+show-fixes = true
+
+# By default, always show source code snippets.
+#show-source = true
+
+# warning: The `show-source` option has been deprecated in favor
+# of `output-format`'s "full" and "concise" variants.
+# Please update your configuration
+# to use `output-format = <full|concise>` instead.
+#output-format = "concise"
+# Group violations by containing file.
+# can be: "text" | "json" | "junit" | "github" | "gitlab" | "pylint" | "azure" "grouped"|full|concise
+output-format = "full"
+
+
+# Enable preview features.
+preview = true
+
+[tool.ruff.format]
+indent-style = "space"
+quote-style="single"
+
+[tool.ruff.lint]
+task-tags = ["TODO", "FIXME"]
+
+# Require explicit selection of preview rules.
+explicit-preview-rules = true
+
+# Allow applying all unsafe fixes in the `E` rules and `F401` without the `--unsafe-fixes` flag
+extend-safe-fixes = ["E", "F401"]
+
+# Avoid trying to fix flake8-bugbear (`B`) violations.
+unfixable = ["B"]
+
+# Enable fix for flake8-bugbear (`B`), on top of any rules specified by `fixable`.
+extend-fixable = ["B"]
+
+select = [
+  "A",    #flake8-builtins
+  "AIR",    #Airflow
+  "ANN",    #flake8-annotations
+  "ARG",    #flake8-unused-arguments
+  "ASYNC",    #flake8-async
+  "B",    #flake8-bugbear
+  "BLE",    #flake8-blind-except
+  "C4",    #flake8-comprehensions
+  "C90",    #mccabe
+  "COM",    #flake8-commas
+  "CPY",    #flake8-copyright
+  "D",   # pydocstyle
+  "DJ",    #flake8-django
+  "DTZ",    #flake8-datetimez
+  "E",   # pycodestyle
+  "W",    #pycodestyle
+  "EM",    #flake8-errmsg
+  "ERA",    #eradicate
+  "EXE",    #flake8-executable
+  "F",   # pyflakes
+  "FA",    #flake8-future-annotations
+  "FBT",    #flake8-boolean-trap
+  "FIX",    #flake8-fixme
+  "FLY",    #flynt
+  "FURB",    #refurb
+  "G",    #flake8-logging-format
+  "I",    #isort
+  "ICN",    #flake8-import-conventions
+  "INP",    #flake8-no-pep420
+  "INT",    #flake8-gettext
+  "ISC",    #flake8-implicit-str-concat
+  "N",    #pep8-naming
+  "NPY",    #NumPy-specific rules
+  "PD",    #pandas-vet
+  "PERF",    #Perflint
+  "PGH",    #pygrep-hooks
+  "PIE",    #flake8-pie
+  "PL",    #Pylint
+  "PT",    #flake8-pytest-style
+  "PTH",    #flake8-use-pathlib
+  "PYI",    #flake8-pyi
+  "Q",    #flake8-quotes
+  "RET",    #flake8-return
+  "RSE",    #flake8-raise
+  "RUF",    #Ruff-specific rules
+  "S",    #flake8-bandit
+  "SIM",    #flake8-simplify
+  "SLF",    #flake8-self
+  "SLOT",    #flake8-slots
+  "T10",    #flake8-debugger
+  "T20",    #flake8-print
+  "TCH",    #flake8-type-checking
+  "TD",    #flake8-todos
+  "TID",    #flake8-tidy-imports
+  "TRY",    #tryceratops
+  "UP",  # pyupgrade
+  "YTT",    #flake8-2020
+]
+
+# Never enforce `E501` (line length violations).
+ignore = [
+  "INP001",
+  "CPY001",
+  "FA100",  # Conflit with mypy
+  "UP006",  # Conflit with mypy
+  "UP007",  # Conflit with mypy
+#  "I001",   # conflit with isort
+  "ISC001",  # single-line-implicit-string-concatenation
+#    "COM812",  # missing-trailing-comma
+]
+
+[tool.ruff.lint.per-file-ignores]
+# Ignore `E402` (import violations) in all `__init__.py` files, and in `path/to/file.py`.
+#"__init__.py" = ["E402"]
+#"path/to/file.py" = ["E402"]
+#"**/{tests,docs,tools}/*" = ["E402"]
+"**/{tests,docs,tools,utils}/*" = ["EXE002"]
+"**/*_tests.py" = [
+  "ANN001",
+  "ANN101",
+  "EXE002",
+  "I001",
+  "PLR6301",
+  "S101",
+  "ANN401",  # suppress due conflit with mypy
+]
+"**/test_*.py" = [
+  "ANN001",
+  "ANN101",
+  "EXE002",
+  "I001",
+  "PLR6301",
+  "S101",
+  "ANN401",  # suppress due conflit with mypy
+]
+
+
+[tool.ruff.lint.mccabe]
+# Unlike Flake8, default to a complexity level of 10.
+max-complexity = 5
+
+[tool.ruff.lint.pydocstyle]
+convention = "google"
+
+[tool.ruff.lint.flake8-annotations]
+allow-star-arg-any = true
+ignore-fully-untyped = true
+suppress-dummy-args = true
+mypy-init-return = true
+
+[tool.ruff.lint.flake8-comprehensions]
+allow-dict-calls-with-keyword-arguments = true
+
+[tool.ruff.lint.flake8-copyright]
+author = "Ruff"
+# Avoid enforcing a header on files smaller than 1024 bytes.
+min-file-size = 2
+
+[tool.ruff.lint.flake8-quotes]
+# Don't bother trying to avoid escapes.
+avoid-escape = false
+docstring-quotes = "double"
+inline-quotes = "single"
+multiline-quotes = "double"
+
+[tool.ruff.lint.flake8-pytest-style]
+parametrize-names-type = "list"
+parametrize-values-row-type = "tuple"
+
+[tool.taskipy.settings]
+#use_vars = true   # set use_vars automaticly
+
+[tool.taskipy.variables]
+path = "incolume/ tests/"
+CHANGELOGFILE = "docs/about/CHANGELOG.md"
+URLCOMPARE = "https://github.com/incolumepy-prospections/flet-routing-tutorial/compare/"
+
+[tool.taskipy.tasks]
+clean = {cmd = "echo -n 'Starting cleanning environment..'; find ./ \\( -wholename '*report_coverage' -o -name '*.pyc' -o -name '*~' -o -name '*.log' -o -name '*.log.*' -o -name '.cache' -o -name '.coverage' \\) -delete ; echo ' ok' ",  help = "Shallow clean into environment (.pyc, .cache, .egg, .log, et all)" }
+pre_clean-all = {cmd='poetry run task clean', help=''}
+clean-all = {cmd = "echo -n 'Starting Deep cleanning ..'; find ./ \\( -name '*_cache' -o -name '*cache__' -o -name dist -o -name build -o -name .tox -o -name site -o -name coverage_report \\) -exec rm -rf {} 2> /dev/null \\; ; echo ' Deep cleaning finished!' ",  help = "Deep cleanning into environment (dist, build, htmlcov, .tox, *_cache, et all)" }
+pre_docs-build={help='Pre docs-build', cmd="poetry run task gcl"}
+docs-build = {help="Generate documentation", cmd="poetry run mkdocs gh-deploy --config-file mkdocs.yml --remote-branch webdoc"}
+docs-serve = {help="Run server documentation", cmd="poetry run mkdocs serve"}
+pre_changelog='poetry run pytest'
+changelog = {help='Update changelog file', cmd = "poetry run gcl {CHANGELOGFILE} -u {URLCOMPARE} && echo CHANGELOG file - {CHANGELOGFILE} - updated with success.;echo", use_vars = true }
+gcl = {help='Update changelog file', cmd='poetry run task changelog'}
+setup = { help = 'Configure environment develop', cmd='git config core.hooksPath .git-hooks/'}
