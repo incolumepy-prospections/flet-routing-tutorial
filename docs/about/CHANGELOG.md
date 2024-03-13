@@ -10,7 +10,7 @@ This file was automatically generated for [incolume.py.changelog](https://github
 ---
 
 
-## [Unreleased]	 &#8212; 	2024-03-13:
+## [0.2.0]	 &#8212; 	2024-03-13:
 ### Added
   - Ferramentas para automatizar documentação;
   - Ferramentas para automação de tarefas;
@@ -25,4 +25,4 @@ This file was automatically generated for [incolume.py.changelog](https://github
 
 ---
 
-[Unreleased]: https://github.com/incolumepy-prospections/flet-routing-tutorial/compare//0.1.0...Unreleased
+[0.2.0]: https://github.com/incolumepy-prospections/flet-routing-tutorial/compare//0.1.0...0.2.0
